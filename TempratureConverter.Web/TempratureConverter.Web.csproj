@@ -1,0 +1,32 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>75c1676c-225a-4de7-b367-f5a8b0b683db</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.OpenApi" Version="1.2.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.1.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.1.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.1.4" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.1.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\TempratureConverter.BL\TempratureConverter.BL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <Target Name="Build Angular Debug" Condition="$(ConfigurationName) == 'Debug'" BeforeTargets="Build">
+    <Message Text="********************Building angular application**************************" Importance="high" />
+    <Exec Command="npm run build:dev" WorkingDirectory="..\TempratureConverter.UI\temprature-converter" />
+  </Target>
+  <Target Name="Build Angular Release" Condition="$(ConfigurationName) == 'Release'" BeforeTargets="Build">
+    <Message Text="********************Building angular application**************************" Importance="high" />
+    <Exec Command="npm run build:prod" WorkingDirectory="..\TempratureConverter.UI\temprature-converter" />
+  </Target>
+</Project>

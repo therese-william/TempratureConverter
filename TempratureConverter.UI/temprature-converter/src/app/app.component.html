@@ -1,0 +1,38 @@
+<div class="card">
+  <div class="card-header">
+    Temprature Converter
+  </div>
+  <div class="card-body">
+    <form>
+      <div class="form-group row mb-3">
+        <label for="celsius" class="col-sm-2 col-form-label">Celsius</label>
+        <div class="col-sm-4 d-flex flex-row">
+          <input type="number" class="form-control" name="celsius" #celsius="ngModel" [(ngModel)]="service.currentTemprature.celsius" (input)="service.clearToRecalculate('c')" (change)="service.getTemprature('c')" placeholder="Celsius" required />
+          <span class="p-2 bg-info">°C</span>
+          <span class="p-2">&nbsp;</span>
+          <button [disabled]="celsius.errors?.required" (click)="service.getTemprature('c')">Convert</button>
+        </div>
+      </div>
+      <div class="form-group row mb-3">
+        <label for="fahrenheit" class="col-sm-2 col-form-label">Fahrenheit</label>
+        <div class="col-sm-4 d-flex flex-row">
+          <input type="number" class="form-control" name="fahrenheit" #fahrenheit="ngModel" [(ngModel)]="service.currentTemprature.fahrenheit" (input)="service.clearToRecalculate('f')" (change)="service.getTemprature('f')" placeholder="Fahrenheit" required />
+          <span class="p-2 bg-info">°F</span>
+          <span class="p-2">&nbsp;</span>
+          <button [disabled]="fahrenheit.errors?.required" (click)="service.getTemprature('f')">Convert</button>
+        </div>
+      </div>
+      <div class="form-group row mb-3">
+        <label for="kelvin" class="col-sm-2 col-form-label">Kelvin</label>
+        <div class="col-sm-4 d-flex flex-row">
+          <input type="number" class="form-control" name="kelvin" #kelvin="ngModel" [(ngModel)]="service.currentTemprature.kelvin" (input)="service.clearToRecalculate('k')" (change)="service.getTemprature('k')" placeholder="Kelvin" required />
+          <span class="p-2 bg-info">&nbsp;K</span>
+          <span class="p-2">&nbsp;</span>
+          <button [disabled]="kelvin.errors?.required" (click)="service.getTemprature('k')">Convert</button>
+        </div>
+
+      </div>
+    </form>
+  </div>
+  </div>
+
