@@ -4,7 +4,7 @@
 
 #### 1. Buisiness Layer: TempratureConverter.BL
 This is resposible of doing all the business logic which is the calculations in our application, it consists of a model and service classes
-1. Temprature.cs is the model, it has celsius, fahrenhite and kelvin variables, setting one of the variables will automatically calculate the other 2.
+1. Temprature.cs is the model, it has celsius, fahrenhite and kelvin variables, setting one of the variables will automatically calculate the other
 2. Temprature service interface, where we have only 3 methods to get the temprature using each type of the variables.
 
 #### 2. Unit Testing project: TempratureConverter.Tests
